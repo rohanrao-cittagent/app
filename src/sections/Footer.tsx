@@ -130,9 +130,9 @@ export default function Footer() {
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-12"
         >
           {/* Brand Column */}
-          <div className="col-span-2">
-            <a href="#" className="flex items-center gap-2 mb-2">
-              <div className="relative h-28 w-auto flex items-center justify-center">
+          <div className="col-span-2 pt-12">
+            <a href="#" className="flex items-start gap-2 mb-2">
+              <div className="relative h-28 w-auto flex items-start">
                 <img src={logo} alt="FactoryOps Logo" className="h-full w-auto object-contain" />
               </div>
             </a>
