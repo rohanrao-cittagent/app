@@ -127,16 +127,16 @@ export default function Footer() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-12"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-12 pt-50"
         >
           {/* Brand Column */}
-          <div className="col-span-2 pt-12">
-            <a href="#" className="flex items-start gap-2 mb-2">
+          <div className="col-span-2">
+            <a href="#" className="flex items-start gap-2 mb-2 -mt-10">
               <div className="relative h-28 w-auto flex items-start">
                 <img src={logo} alt="FactoryOps Logo" className="h-full w-auto object-contain" />
               </div>
             </a>
-            <p className="text-white/60 text-sm mb-6 max-w-xs">
+            <p className="text-white/60 text-sm mb-6 max-w-xs -mt-5">
               AI-powered industrial intelligence platform for modern manufacturing operations.
             </p>
 
@@ -144,15 +144,19 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-sm text-white/60">
                 <MapPin className="w-4 h-4 text-cyan-400 flex-shrink-0" />
-                <span>Mumbai, Maharashtra, India</span>
+                <span>CA Site, 1, HAL 3rd Stage EXTN,
+                  behind Hotel Leela Palace, HAL 2nd Stage,
+                  Kodihalli, Bengaluru, Karnataka 560008
+
+                  Platform</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-white/60">
                 <Phone className="w-4 h-4 text-cyan-400 flex-shrink-0" />
-                <span>+91 22 1234 5678</span>
+                <span>+91 90087 63311</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-white/60">
                 <Mail className="w-4 h-4 text-cyan-400 flex-shrink-0" />
-                <span>contact@factoryops.ai</span>
+                <span>support@cittagent.com</span>
               </div>
             </div>
           </div>
@@ -237,7 +241,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Copyright */}
             <p className="text-sm text-white/50 text-center md:text-left">
-              © {new Date().getFullYear()} FactoryOps AI. All rights reserved.
+              © {new Date().getFullYear()} Cittagent Technologies. All rights reserved.
             </p>
 
             {/* Social Links */}

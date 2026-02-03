@@ -1,7 +1,13 @@
 import { useRef, useEffect, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Play, Sparkles, Activity, TrendingUp, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+
+const words = [
+  { text: "Factory Ops", color: "text-gradient" },
+  { text: "Production Line", color: "text-gradient-gold" },
+  { text: "Factory Floor", color: "text-cyan-400" }, // Using a solid blue/cyan style or we can define a new gradient
+];
 
 // 3D Particle Network Component
 function ParticleNetwork() {
@@ -152,6 +158,14 @@ function FloatingCard({
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % words.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -241,7 +255,20 @@ export default function Hero() {
               className="heading-1 text-white mb-6"
             >
               <span className="block">Transform Your</span>
-              <span className="block text-gradient">Factory Operations</span>
+              <span className="block h-[1.2em] overflow-hidden whitespace-nowrap">
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={words[index].text}
+                    initial={{ y: 40, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -40, opacity: 0 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className={`block ${words[index].color}`}
+                  >
+                    {words[index].text}
+                  </motion.span>
+                </AnimatePresence>
+              </span>
               <span className="block">with AI</span>
             </motion.h1>
 
